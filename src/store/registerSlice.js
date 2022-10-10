@@ -14,7 +14,6 @@ const initialState = {
   isValidUserName: false,
   isValidPassword: false,
   isPassMatch: false,
-  isSubmitAvailable: false,
   currentPWD: "",
   confirmPWD: "",
   isValidPwLength: false,

@@ -2,10 +2,8 @@ import {
   faCheckCircle,
   faCircleInfo,
   faCircleXmark,
-  faMessage,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import autoprefixer from "autoprefixer";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -32,8 +30,6 @@ const Register = () => {
     isPwHasUpp,
     isPwHasNumber,
     isPwHasSc,
-
-    isSubmitAvailable,
   } = useSelector((store) => store.register);
 
   const inputs = [
@@ -96,11 +92,14 @@ const Register = () => {
     }
   };
 
+  const handleSubmit = () =>{
+    //perform validation here
+  }
+
   return (
-    <div className="flex justify-center">
-      <div className="w-full h-screen">
-        <form className="bg-blue-200 flex flex-col m-10 justify-center p-10">
-          <h1 className="text-center text-3xl font-bold p-5">Register</h1>
+      <div className="flex w-screen h-screen justify-center">
+        <form className="flex bg-blue-200 w-2/3 max-w-sm h-fit flex flex-col m-10 justify-center p-10">
+          <h1 className="text-center text-3xl font-bold p-5">Register Validation Sample</h1>
 
           {inputs.map((input) => {
             return (
@@ -151,7 +150,7 @@ const Register = () => {
             );
           })}
           <button
-            className=" mx-auto my-5 w-2/3 h-16 bg-red-300 ring-2 ring-black ring-inset disabled:opacity-20"
+            className=" mx-auto my-5 w-2/3 h-10 bg-red-300 ring-2 ring-black ring-inset disabled:opacity-20 shadow-md enabled:hover:scale-110 enabled:hover:shadow-lg enabled:hover:font-bold" 
             disabled={
               !isEmptyUserName &&
               !isEmptyName &&
@@ -163,12 +162,12 @@ const Register = () => {
                 ? false
                 : true
             }
+            onClick={handleSubmit}
           >
             Submit
           </button>
         </form>
       </div>
-    </div>
   );
 };
 
